@@ -1,18 +1,22 @@
 import React from 'react';
-import {View, Text, SafeAreaView, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image, Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import styles from './style';
 
 // packages
 import LinearGradient from 'react-native-linear-gradient';
-import MaskedView from '@react-native-masked-view/masked-view';
 import GradientText from '../../components/GradientText';
 
 const Onbording = () => {
+  const navigation = useNavigation();
+  const goHome = () => {
+    navigation.navigate('/home');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
         colors={['#26303A', '#0D1218']}
-        style={styles.linearGradient}>
+        style={{flex:1}}>
         <View style={styles.titleContainer}>
           <GradientText
             text="Your"
@@ -37,10 +41,12 @@ const Onbording = () => {
           start={{x: 0.0, y: 0.5}}
           end={{x: 1, y: 0.5}}
           colors={['#E9AD8B', '#D053ED', '#A681E7']}>
-          <Image
-            style={styles.iconImg}
-            source={require('../../assets/back.png')}
-          />
+          <Pressable onPress={goHome}>
+            <Image
+              style={styles.iconImg}
+              source={require('../../assets/back.png')}
+            />
+          </Pressable>
         </LinearGradient>
       </LinearGradient>
     </SafeAreaView>
