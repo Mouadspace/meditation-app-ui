@@ -1,7 +1,8 @@
 import React from 'react';
+
 import Onbording from './src/screens/onBording';
 
-function App(): JSX.Element {
+function App() {
   return <Onbording />;
 }
 

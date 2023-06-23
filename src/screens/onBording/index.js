@@ -4,7 +4,8 @@ import styles from './style';
 
 // packages
 import LinearGradient from 'react-native-linear-gradient';
-import {LinearTextGradient} from 'react-native-text-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
+import GradientText from '../../components/GradientText';
 
 const Onbording = () => {
   return (
@@ -13,23 +14,17 @@ const Onbording = () => {
         colors={['#26303A', '#0D1218']}
         style={styles.linearGradient}>
         <View style={styles.titleContainer}>
-          <LinearTextGradient
+          <GradientText
+            text="Your"
             style={styles.title}
-            locations={[0, 0.5, 1]}
             colors={['#ABC7E3', '#8F7DBD', '#A4367A']}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}>
-            <Text>Your</Text>
-          </LinearTextGradient>
+          />
           <Text style={styles.title}>Personal</Text>
-          <LinearTextGradient
+          <GradientText
+            text="Journey"
             style={styles.title}
-            locations={[0, 1]}
-            colors={['#CC7A6F', '#fff']}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}>
-            <Text>Journey</Text>
-          </LinearTextGradient>
+            colors={['#CC7A6F', '#ffffff']}
+          />
           <Text style={styles.title}>Begins</Text>
           <Text style={styles.title}>Here</Text>
         </View>
@@ -52,4 +47,4 @@ const Onbording = () => {
   );
 };
 
-export default Onbording;
+export default React.memo(Onbording);

@@ -39,6 +39,11 @@ const styles = StyleSheet.create({
     left: 19.5,
     transform: [{scale: -1}],
   },
+  gradient: {
+    position: 'absolute',
+    top: -80,
+    left: 0,
+  },
 });
 
 export default styles;
