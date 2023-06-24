@@ -74,5 +74,59 @@ const styles = StyleSheet.create({
     marginRight: 21,
     transform: [{scale: -1}],
   },
+
+  Card: {
+    flexDirection: 'column',
+    marginTop: 25,
+    paddingRight: 20,
+  },
+  picksCard: {
+    width: 207,
+    height: 123,
+    borderRadius: 20,
+  },
+  cardTitle: {
+    marginTop: 8,
+    color: '#ffffff',
+  },
+  cardDuration: {
+    fontSize: 12,
+    marginTop: 4,
+    color: 'rgba(255,255,255,0.6)',
+  },
+  backgroundContainer: {
+    marginTop: 3, // 25
+    padding: 22,
+  },
+  backgroundImage: {
+    width: '100%',
+    height: 140,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  text: {
+    color: 'white',
+    fontSize: 20,
+    marginLeft: 25,
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  playContainer: {
+    width: 50,
+    height: 50,
+    borderRadius: 25, // 50/2 <=> 50%
+    backgroundColor: 'white',
+    marginRight: 25,
+  },
+  triangle: {
+    width: 20,
+    height: 20,
+    alignSelf: 'center',
+    marginTop: 14,
+    marginLeft: 3,
+  },
 });
 export default styles;

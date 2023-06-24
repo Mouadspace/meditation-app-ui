@@ -1,8 +1,17 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Text, View, Image, TextInput} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  TextInput,
+  FlatList,
+  ImageBackground,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './style';
+import jsonData from '../../data/picks.json';
+import SectionTitle from '../../components/SectionTitle';
 
 const Home = () => {
   return (
@@ -35,12 +44,45 @@ const Home = () => {
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Personlized Picks</Text>
-          <Image
-            source={require('../../assets/left.png')}
-            style={styles.sectionIcon}
-          />
+        <SectionTitle text="Personlized Picks" />
+        <FlatList
+          data={jsonData?.length ? jsonData : []}
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          style={{paddingLeft: 22}}
+          renderItem={({item}) => {
+            return (
+              <View style={styles.Card}>
+                <Image source={{uri: item.imageSrc}} style={styles.picksCard} />
+                <Text style={styles.cardTitle}>{item.title}</Text>
+                <Text style={styles.cardDuration}>{item.duration}</Text>
+              </View>
+            );
+          }}
+        />
+        <SectionTitle text="Relax & Recharge" />
+        <View style={styles.backgroundContainer}>
+          <ImageBackground
+            borderRadius={20}
+            source={{
+              uri: 'https://i.pinimg.com/originals/94/ef/9a/94ef9a9a9c7a27d772f9cadb01cc78bc.jpg',
+            }}
+            style={styles.backgroundImage}>
+            <View style={styles.row}>
+              <View>
+                <Text style={styles.text}>Down the river</Text>
+                <Text style={[styles.text, {fontSize: 12}]}>
+                  SLEEP TRACK. 10-25 min
+                </Text>
+              </View>
+              <View style={styles.playContainer}>
+                <Image
+                  source={require('../../assets/play.png')}
+                  style={styles.triangle}
+                />
+              </View>
+            </View>
+          </ImageBackground>
         </View>
       </SafeAreaView>
     </LinearGradient>
